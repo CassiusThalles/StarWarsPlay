@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Star Wars Game</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'planets/index.css' %}">
+</head>
+<body>
+	<div class="star-wars">
+		<h1>{{ text }}</h1>
+
+		<div id="content">
+			<p>Welcome to the Star Wars game.</p>
+			<p>The game consists in, given a random Star Wars' planet, you'll be asked to guess how would be: climate, terrain and the number of movies it appeared.</p>
+			<p>To help you, in the button below you'll be redirected to a page that will give you a hint based on a random planet.</p>
+			<p>To do so, it'll consume some data from 'https://swapi.co/'</p>
+			<p>Let's get some fun...</p>
+		</div>
+		<form method="get" action="{% url 'hints' %}">
+			<button type="submit">Go to the tip</button>
+		</form>
+	</div>
+</body>
+</html>

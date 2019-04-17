@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Star Wars Game</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'planets/index.css' %}">
+</head>
+<body>
+	<div class="star-wars">
+		<h1>{{ planet_name }}</h1>
+
+		{% if population %}
+			<p>population: {{ population }}</p>
+		{% else %}
+			<p>population: unknown</p>
+		{% endif %}
+
+		{% if climate %}
+			<p>climate: {{ climate }}</p>
+		{% else %}
+			<p>climate: unknown</p>
+		{% endif %}
+
+		{% if terrain %}
+			<p>terrain: {{ terrain }}</p>
+		{% else %}
+			<p>terrain: unknown</p>
+		{% endif %}
+
+		{% if films %}
+			<p>Movies:</p>
+			<ul>
+				{% for movie in films %}
+					<li>{{ movie }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		<div>
+			<form method="get" action="{% url 'hints' %}"  style="margin: 15px;">
+				<div>
+					<button type="submit">Next Tip</button>
+				</div>
+			</form>
+			<form method="get" action="{% url 'index' %}"  style="margin: 15px;">
+				<div>
+					<button type="submit">Back to Home</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
